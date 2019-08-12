@@ -8,4 +8,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EditTextStyle">
+        <item name="android:layout_marginStart">@dimen/editTextMarginHorizontal</item>
+        <item name="android:layout_marginEnd">@dimen/editTextMarginHorizontal</item>
+        <item name="android:layout_marginTop">@dimen/editTextMarginVertical</item>
+        <item name="android:layout_marginBottom">@dimen/editTextMarginVertical</item>
+        <item name="android:padding">@dimen/editTextPadding</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="SignUpStyle">
+        <item name="android:layout_marginStart">@dimen/editTextMarginHorizontal</item>
+        <item name="android:layout_marginEnd">@dimen/editTextMarginHorizontal</item>
+        <item name="android:layout_marginTop">@dimen/editTextMarginVertical</item>
+        <item name="android:layout_marginBottom">@dimen/editTextMarginVertical</item>
+        <item name="android:padding">@dimen/editTextPadding</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
 </resources>

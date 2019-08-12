@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Jammin</string>
+    <string name="logo">logo</string>
+    <string name="emailHint">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot">Forgot your password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="register">Register</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="back_without_saving">Back without saving</string>
 </resources>
