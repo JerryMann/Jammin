@@ -24,7 +24,6 @@ fun loadImage(url: String, imageView: ImageView) {
 fun loadCircularImage(url: String, imageView: ImageView) {
     Picasso.get()
         .load(url)
-        .error(R.drawable.key)
         .transform(Circular())
         .into(imageView, object : Callback {
             override fun onSuccess() {
@@ -32,6 +31,10 @@ fun loadCircularImage(url: String, imageView: ImageView) {
             }
 
             override fun onError(e: Exception?) {
+                Picasso.get()
+                    .load(R.drawable.key)
+                    .transform(Circular())
+                    .into(imageView)
             }
         })
 }

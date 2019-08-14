@@ -89,6 +89,6 @@ object UserManagerTemp {
     }
 
     fun findUser(query: String): List<User> {
-        return userList.filter { it.name.contains(query, true) }
+        return userList.filter { it.instrument!!.contains(query, true) }
     }
 }

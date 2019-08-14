@@ -10,4 +10,5 @@
     <color name="colorSearch">#28FFFFFF</color>
     <color name="black">#000000</color>
     <color name="recyclerBackground">#00FFFFFF</color>
+    <color name="colorItemText">#94FFFFFF</color>
 </resources>
