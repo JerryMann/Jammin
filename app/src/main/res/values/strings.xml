@@ -10,4 +10,10 @@
     <string name="last_name">Last name</string>
     <string name="confirm_password">Confirm password</string>
     <string name="back_without_saving">Back without saving</string>
+    <string name="useravatar">userAvatar</string>
+    <string name="musical_instrument">Musical instrument</string>
+    <string name="contact_information_phone_number">Contact information(phone number)</string>
+    <string name="profileavatar">profileAvatar</string>
+    <string name="save_contact">Save contact</string>
+    <string name="go_back">go back</string>
 </resources>

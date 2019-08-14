@@ -7,4 +7,7 @@
     <color name="colorButtonSign">#804E3E</color>
     <color name="white">#FFFFFF</color>
     <color name="colorButtonSignIn">#F14006</color>
+    <color name="colorSearch">#28FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="recyclerBackground">#00FFFFFF</color>
 </resources>

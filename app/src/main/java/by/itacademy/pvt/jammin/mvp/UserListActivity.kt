@@ -1,7 +1,8 @@
-package by.itacademy.pvt.jammin
+package by.itacademy.pvt.jammin.mvp
 
 import android.app.Activity
 import android.os.Bundle
+import by.itacademy.pvt.jammin.R
 
 class UserListActivity : Activity() {
 

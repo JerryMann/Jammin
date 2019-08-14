@@ -17,6 +17,17 @@
         <item name="android:textSize">25sp</item>
     </style>
 
+    <style name="ProfileStyle">
+        <item name="android:layout_marginStart">@dimen/editTextMarginHorizontal</item>
+        <item name="android:layout_marginEnd">@dimen/editTextMarginHorizontal</item>
+        <item name="android:layout_marginTop">@dimen/editTextMarginVertical</item>
+        <item name="android:layout_marginBottom">@dimen/editTextMarginVertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/editTextPadding</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="SignUpStyle">
         <item name="android:layout_marginStart">@dimen/editTextMarginHorizontal</item>
         <item name="android:layout_marginEnd">@dimen/editTextMarginHorizontal</item>
@@ -25,6 +36,17 @@
         <item name="android:padding">@dimen/editTextPadding</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SearchUsers">
+        <item name="android:background">@color/colorSearch</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:maxLines">1</item>
     </style>
 
 
