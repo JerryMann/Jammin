@@ -17,4 +17,8 @@
     <string name="save_contact">Save contact</string>
     <string name="go_back">go back</string>
     <string name="save_changes">save changes</string>
+    <string name="pic_s_url">Pic\'s URL</string>
+    <string name="your_name">Your name</string>
+    <string name="your_instrument">Your instrument</string>
+    <string name="your_contact_information">Your contact information</string>
 </resources>

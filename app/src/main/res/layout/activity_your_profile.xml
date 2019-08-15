@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundcorner_edit_text"
+            android:hint="@string/pic_s_url"
             tools:text="Picture url"/>
 
     <EditText
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundcorner_edit_text"
+            android:hint="@string/your_name"
             tools:text="User's Name"/>
 
     <EditText
@@ -37,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundcorner_edit_text"
+            android:hint="@string/your_instrument"
             tools:text="Musical Instrument"/>
 
     <EditText
@@ -45,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundcorner_edit_text"
+            android:hint="@string/your_contact_information"
             tools:text="202 03 27"/>
 
     <TextView

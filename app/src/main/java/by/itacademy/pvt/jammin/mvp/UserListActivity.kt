@@ -52,6 +52,14 @@ class UserListActivity : Activity(), RecyclerAdapter.ClickListener {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
+
+        checkProfile.setOnClickListener {
+            startActivity(Intent(this, YourProfileActivity::class.java))
+        }
+
+        logOut.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     override fun onUserClick(item: User) {
