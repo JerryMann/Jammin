@@ -16,4 +16,5 @@
     <string name="profileavatar">profileAvatar</string>
     <string name="save_contact">Save contact</string>
     <string name="go_back">go back</string>
+    <string name="save_changes">save changes</string>
 </resources>

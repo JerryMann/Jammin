@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+    <ImageView
+            android:id="@+id/profileAvatar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/profileavatar"
+            tools:src="@drawable/key"/>
+
+    <EditText
+            android:id="@+id/changeAvatar"
+            style="@style/ProfileStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundcorner_edit_text"
+            tools:text="Picture url"/>
+
+    <EditText
+            android:id="@+id/profileName"
+            style="@style/ProfileStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundcorner_edit_text"
+            tools:text="User's Name"/>
+
+    <EditText
+            android:id="@+id/profileInstrument"
+            style="@style/ProfileStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundcorner_edit_text"
+            tools:text="Musical Instrument"/>
+
+    <EditText
+            android:id="@+id/profileContact"
+            style="@style/ProfileStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundcorner_edit_text"
+            tools:text="202 03 27"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    <Button
+            android:id="@+id/saveButton"
+            style="@style/SignUpStyle"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_changes"
+            android:background="@drawable/roundcorner_enter_button"/>
+
+    <Button
+            android:id="@+id/backToList"
+            style="@style/SignUpStyle"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/go_back"
+            android:background="@drawable/roundcorner_button"/>
+
+</LinearLayout>
