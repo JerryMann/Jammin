@@ -18,48 +18,36 @@ object UserManagerTemp {
         userList = mutableListOf(
             User(
                 Random(System.currentTimeMillis()).toString(),
-                "1",
-                "123",
                 "Richard",
             "saxophone",
             "333-444-555",
                 "1"
             ),User(
                 Random(System.currentTimeMillis()).toString(),
-                "1",
-                "123",
                 "Michael",
                 "trumpet",
                 "333-444-555",
                 "1"
             ),User(
                 Random(System.currentTimeMillis()).toString(),
-                "1",
-                "123",
                 "Max",
                 "trombone",
                 "333-444-555",
                 "1"
             ),User(
                 Random(System.currentTimeMillis()).toString(),
-                "1",
-                "123",
                 "Helen",
                 "violin",
                 "333-444-555",
                 "1"
             ),User(
                 Random(System.currentTimeMillis()).toString(),
-                "1",
-                "123",
                 "Ann",
                 "piano",
                 "333-444-555",
                 "1"
             ),User(
                 Random(System.currentTimeMillis()).toString(),
-                "1",
-                "123",
                 "Kate",
                 "saxophone",
                 "333-444-555",

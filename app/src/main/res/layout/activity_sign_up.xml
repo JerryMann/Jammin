@@ -14,24 +14,13 @@
             android:layout_weight="1"/>
 
     <EditText
-            android:id="@+id/createFirstName"
+            android:id="@+id/createName"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/first_name"
+            android:autofillHints="@string/name"
             android:background="@drawable/roundcorner_edit_text"
-            android:hint="@string/first_name"
-            android:inputType="text"
-            tools:targetApi="o"/>
-
-    <EditText
-            android:id="@+id/createLastName"
-            style="@style/EditTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="@string/last_name"
-            android:background="@drawable/roundcorner_edit_text"
-            android:hint="@string/last_name"
+            android:hint="@string/name"
             android:inputType="text"
             tools:targetApi="o"/>
 
@@ -66,28 +55,6 @@
             android:background="@drawable/roundcorner_edit_text"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
-            tools:targetApi="o"/>
-
-    <EditText
-            android:id="@+id/createInstrument"
-            style="@style/EditTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="@string/musical_instrument"
-            android:background="@drawable/roundcorner_edit_text"
-            android:hint="@string/musical_instrument"
-            android:inputType="text"
-            tools:targetApi="o"/>
-
-    <EditText
-            android:id="@+id/createContact"
-            style="@style/EditTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="@string/contact_information_phone_number"
-            android:background="@drawable/roundcorner_edit_text"
-            android:hint="@string/contact_information_phone_number"
-            android:inputType="text"
             tools:targetApi="o"/>
 
     <TextView
