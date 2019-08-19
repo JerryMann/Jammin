@@ -5,7 +5,6 @@ import by.itacademy.pvt.jammin.R
 import by.itacademy.pvt.jammin.utils.transform.Circular
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import java.lang.Exception
 
 fun loadImage(url: String, imageView: ImageView) {
     Picasso.get()

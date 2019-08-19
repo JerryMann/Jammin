@@ -20,7 +20,7 @@ class UserProfilePresenter {
         view?.showUser(user)
     }
 
-    fun saveUserInYourList(){
+    fun saveUserInYourList() {
         //TODO сохранение юзера в БД
     }
 }

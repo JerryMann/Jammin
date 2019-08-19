@@ -1,7 +1,6 @@
 package by.itacademy.pvt.jammin.mvp.userList
 
 import android.content.Context
-import by.itacademy.pvt.jammin.entity.UserManagerTemp
 
 class UserListPresenter {
 

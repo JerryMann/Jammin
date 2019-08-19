@@ -12,7 +12,7 @@ class YourProfilePresenter {
         this.view = null
     }
 
-    fun saveChanges(){
+    fun saveChanges() {
         //TODO логика сохранения данных залогиневшегося юзера
     }
 }

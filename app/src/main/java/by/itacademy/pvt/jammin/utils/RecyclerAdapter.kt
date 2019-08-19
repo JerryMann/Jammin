@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import by.itacademy.pvt.jammin.R
 import by.itacademy.pvt.jammin.entity.User
 
-class RecyclerAdapter (
+class RecyclerAdapter(
     private var items: List<User>,
     private val listener: ClickListener
-): RecyclerView.Adapter<ViewHolder>(){
+) : RecyclerView.Adapter<ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)

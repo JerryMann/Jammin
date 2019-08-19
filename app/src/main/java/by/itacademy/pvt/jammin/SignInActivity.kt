@@ -5,12 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import by.itacademy.pvt.jammin.mvp.userList.UserListActivity
-import com.backendless.Backendless
-import com.backendless.BackendlessUser
-import com.backendless.async.callback.AsyncCallback
-import com.backendless.exceptions.BackendlessFault
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 private const val APPID = "3DB46DD2-BE7E-A51D-FF8E-21FAF7837500"
@@ -25,7 +20,7 @@ class SignInActivity : Activity() {
         val login = findViewById<TextView>(R.id.emailInput)
         val password = findViewById<TextView>(R.id.passwordInput)
 
-        Backendless.initApp(this, APPID, APIKEY)
+        //Backendless.initApp(this, APPID, APIKEY)
 
         signUpButton.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
@@ -40,10 +35,6 @@ class SignInActivity : Activity() {
         return this
     }
 }
-
-
-
-
 
 //if (login.text != null && password.text != null) {
 //

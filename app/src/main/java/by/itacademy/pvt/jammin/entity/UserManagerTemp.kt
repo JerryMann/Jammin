@@ -61,21 +61,6 @@ object UserManagerTemp {
         return userList.find { it.id == id }
     }
 
-    fun deleteUser(id: String) {
-        userList.find { it.id == id }?.apply { userList.remove(this) }
-    }
-
-    fun updateUser(student: User) {
-        val index = userList.indexOfFirst { it.id == student.id }
-        if (index != -1) {
-            userList[index] = student
-        }
-    }
-
-    fun createUser(student: User) {
-        userList.add(student)
-    }
-
     fun findUser(query: String): List<User> {
         return userList.filter { it.instrument!!.contains(query, true) }
     }
