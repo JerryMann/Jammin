@@ -9,13 +9,15 @@ import com.squareup.picasso.Picasso
 fun loadImage(url: String, imageView: ImageView) {
     Picasso.get()
         .load(url)
-        .error(R.drawable.key)
         .into(imageView, object : Callback {
             override fun onSuccess() {
                 return
             }
 
             override fun onError(e: Exception?) {
+                Picasso.get()
+                    .load(R.drawable.key)
+                    .into(imageView)
             }
         })
 }

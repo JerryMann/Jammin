@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "828587222368",
+    "firebase_url": "https://jammin-569fb.firebaseio.com",
+    "project_id": "jammin-569fb",
+    "storage_bucket": "jammin-569fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828587222368:android:ebd6eb0d20c87a6b",
+        "android_client_info": {
+          "package_name": "by.itacademy.pvt.jammin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828587222368-obqvlj1id40a7m8ffi5ldbc820nbrte2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "by.itacademy.pvt.jammin",
+            "certificate_hash": "b9f423a8dff427bf367dd733173fa1a8dbe1575b"
+          }
+        },
+        {
+          "client_id": "828587222368-d2rneqigp6pb1op47a4j2cgukacl0fui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAApIT6-AkbHq2SAhobuq85aTg_ihbnb_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828587222368-d2rneqigp6pb1op47a4j2cgukacl0fui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
