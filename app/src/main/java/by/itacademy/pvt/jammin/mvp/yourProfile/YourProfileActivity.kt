@@ -2,15 +2,19 @@ package by.itacademy.pvt.jammin.mvp.yourProfile
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import by.itacademy.pvt.jammin.R
-import by.itacademy.pvt.jammin.utils.loadImage
+import by.itacademy.pvt.jammin.net.UserRepository
+import by.itacademy.pvt.jammin.net.provideUserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_your_profile.*
 
 class YourProfileActivity : Activity(), YourProfileView {
+
+    private val userRepository: UserRepository = provideUserRepository()
 
     private lateinit var presenter: YourProfilePresenter
     private lateinit var auth: FirebaseAuth
@@ -34,25 +38,11 @@ class YourProfileActivity : Activity(), YourProfileView {
         auth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
         user = auth.currentUser!!
+        Log.e("AAA", user.uid)
 
         presenter = YourProfilePresenter()
         presenter.setView(this)
 
-//        val query = dbRef.child("email").equalTo(user.email)
-//        query.addValueEventListener(object: ValueEventListener{
-//            override fun onCancelled(p0: DatabaseError) {
-//                
-//            }
-//
-//            override fun onDataChange(p0: DataSnapshot) {
-//                for (ds in p0.children) {
-//                    tvName.text = ""+ds.child("name").value
-//                    tvInstrument.text = ""+ds.child("instrument").value
-//                    tvContact.text = ""+ds.child("contact").value
-//                    loadImage(tvImageUrl.text.toString(), profileAvatar)
-//                }
-//            }
-//        })
 
         backToList.setOnClickListener {
             onBackPressed()
@@ -61,6 +51,7 @@ class YourProfileActivity : Activity(), YourProfileView {
 
     override fun showProfile() {
 
+        userRepository.getUser(user.uid)
     }
 
     override fun onDestroy() {
