@@ -22,4 +22,6 @@
     <string name="your_instrument">Your instrument</string>
     <string name="your_contact_information">Your contact information</string>
     <string name="name">Name</string>
+    <string name="instrument">Instrument</string>
+    <string name="phone_contact">Phone Contact</string>
 </resources>

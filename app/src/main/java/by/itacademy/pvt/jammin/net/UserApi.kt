@@ -1,15 +1,20 @@
 package by.itacademy.pvt.jammin.net
 
 import by.itacademy.pvt.jammin.entity.User
+import io.reactivex.Completable
 import io.reactivex.Observable
-import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface UserApi {
 
-    @GET("data/Users")
+    @GET("Users/{uid}.json")
     fun getUser(
-        @Query("uid") uid: String
-    ): Single<User>
+        @Path("uid") uid: String
+    ): Observable<User>
+
+    @PUT("Users/{uid}.json")
+    fun updateUser(
+        @Path("uid") uid: String,
+        @Body User: User
+    ): Completable
 }

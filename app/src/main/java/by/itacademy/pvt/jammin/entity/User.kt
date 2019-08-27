@@ -11,11 +11,11 @@ class User(
     var name: String,
 
     @SerializedName("instrument")
-    var instrument: String?,
+    var instrument: String,
 
     @SerializedName("contact")
-    var contact: String?,
+    var contact: String,
 
     @SerializedName("imageUrl")
-    var imageUrl: String
+    var imageUrl: String?
 )

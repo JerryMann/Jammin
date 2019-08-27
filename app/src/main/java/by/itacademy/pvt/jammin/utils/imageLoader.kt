@@ -22,7 +22,7 @@ fun loadImage(url: String, imageView: ImageView) {
         })
 }
 
-fun loadCircularImage(url: String, imageView: ImageView) {
+fun loadCircularImage(url: String?, imageView: ImageView) {
     Picasso.get()
         .load(url)
         .transform(Circular())

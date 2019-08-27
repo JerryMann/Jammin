@@ -25,6 +25,28 @@
             tools:targetApi="o"/>
 
     <EditText
+            android:id="@+id/createInstrument"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/instrument"
+            android:background="@drawable/roundcorner_edit_text"
+            android:hint="@string/instrument"
+            android:inputType="text"
+            tools:targetApi="o"/>
+
+    <EditText
+            android:id="@+id/createContact"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/phone_contact"
+            android:background="@drawable/roundcorner_edit_text"
+            android:hint="@string/phone_contact"
+            android:inputType="text"
+            tools:targetApi="o"/>
+
+    <EditText
             android:id="@+id/createEmail"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"

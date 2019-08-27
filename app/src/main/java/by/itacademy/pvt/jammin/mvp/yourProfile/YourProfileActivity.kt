@@ -5,20 +5,17 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import by.itacademy.pvt.jammin.R
-import by.itacademy.pvt.jammin.net.UserRepository
-import by.itacademy.pvt.jammin.net.provideUserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_your_profile.*
 
 class YourProfileActivity : Activity(), YourProfileView {
 
-    private val userRepository: UserRepository = provideUserRepository()
-
     private lateinit var presenter: YourProfilePresenter
     private lateinit var auth: FirebaseAuth
-    private lateinit var user: FirebaseUser
+    private lateinit var fbUser: FirebaseUser
     private lateinit var dbRef: DatabaseReference
 
     private lateinit var tvImageUrl: TextView
@@ -37,21 +34,33 @@ class YourProfileActivity : Activity(), YourProfileView {
 
         auth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
-        user = auth.currentUser!!
-        Log.e("AAA", user.uid)
+        fbUser = auth.currentUser!!
+        Log.e("AAA", fbUser.uid)
 
         presenter = YourProfilePresenter()
         presenter.setView(this)
-
+        presenter.loadUser(fbUser.uid)
 
         backToList.setOnClickListener {
             onBackPressed()
         }
+
+        saveButton.setOnClickListener {
+            presenter.saveChanges(
+                contact = tvContact.text.toString(),
+                id = fbUser.uid,
+                instrument = tvInstrument.text.toString(),
+                name = tvName.text.toString(),
+                imageUrl = tvImageUrl.text.toString()
+            )
+        }
     }
 
-    override fun showProfile() {
-
-        userRepository.getUser(user.uid)
+    override fun showProfile(imageUrl: String?, name: String, instrument: String, contact: String) {
+        tvImageUrl.text = imageUrl
+        tvName.text = name
+        tvInstrument.text = instrument
+        tvContact.text = contact
     }
 
     override fun onDestroy() {
