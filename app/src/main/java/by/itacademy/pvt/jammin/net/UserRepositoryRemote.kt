@@ -3,8 +3,17 @@ package by.itacademy.pvt.jammin.net
 import by.itacademy.pvt.jammin.entity.User
 import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 class UserRepositoryRemote(private val api: UserApi) : UserRepository {
+    override fun getAllUsers(): Single<List<User>> {
+        return api.getAllUsers()
+    }
+
+    override fun getUserByInstrument(instrument: String): Observable<List<User>> {
+        return api.getUserByInstrument("instrument LIKE '%$instrument%'")
+    }
+
     override fun updateUser(user: User): Completable {
         return api.updateUser(user.id, user)
     }

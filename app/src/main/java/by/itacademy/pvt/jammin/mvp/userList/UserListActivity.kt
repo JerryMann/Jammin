@@ -19,10 +19,10 @@ import kotlin.concurrent.schedule
 
 class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener {
 
-    private lateinit var listAdapter: RecyclerAdapter
-    private lateinit var searchText: String
     private lateinit var recycleView: RecyclerView
     private lateinit var presenter: UserListPresenter
+    private var searchText: String = ""
+    private var listAdapter = RecyclerAdapter(emptyList(), this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,7 +87,7 @@ class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener
     }
 
     private fun startSearch() {
-        //presenter.search(searchText)
+   // listAdapter.updateList(presenter.getAllUsers())
         if (searchText != "") {
             listAdapter.updateList(UserManagerTemp.findUser(searchText))
         } else {

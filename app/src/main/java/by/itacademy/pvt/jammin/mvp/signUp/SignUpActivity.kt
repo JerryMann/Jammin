@@ -1,10 +1,11 @@
-package by.itacademy.pvt.jammin
+package by.itacademy.pvt.jammin.mvp.signUp
 
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import by.itacademy.pvt.jammin.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

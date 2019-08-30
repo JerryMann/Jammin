@@ -1,14 +1,14 @@
-package by.itacademy.pvt.jammin
+package by.itacademy.pvt.jammin.mvp.signIn
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import by.itacademy.pvt.jammin.R
+import by.itacademy.pvt.jammin.mvp.signUp.SignUpActivity
 import by.itacademy.pvt.jammin.mvp.userList.UserListActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : Activity() {
