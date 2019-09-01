@@ -8,22 +8,19 @@ import retrofit2.http.*
 
 interface UserApi {
 
-    @GET("Users/{uid}.json")
+    @GET("data/Users/{id}")
     fun getUser(
-        @Path("uid") uid: String
-    ): Observable<User>
+        @Path("id") id: String
+    ): Single<User>
 
-    @PUT("Users/{uid}.json")
+    @PUT("data/Users/{uid}")
     fun updateUser(
         @Path("uid") uid: String,
         @Body User: User
     ): Completable
 
-    @GET("Users/.json")
-    fun getAllUsers(): Single<List<User>>
-
-    @GET("Users/.json")
+    @GET("data/Users")
     fun getUserByInstrument(
-        @Query("instrument") instrument: String
-    ): Observable<List<User>>
+        @Query("where") condition: String
+    ): Observable<MutableList<User>>
 }

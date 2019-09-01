@@ -7,11 +7,9 @@ import io.reactivex.Single
 
 interface UserRepository {
 
-    fun getUser(uid: String): Observable<User>
-
-    fun getAllUsers(): Single<List<User>>
+    fun getUser(id: String): Single<User>
 
     fun updateUser(user: User): Completable
 
-    fun getUserByInstrument(instrument: String): Observable<List<User>>
+    fun getUserByInstrument(instrument: String): Observable<MutableList<User>>
 }

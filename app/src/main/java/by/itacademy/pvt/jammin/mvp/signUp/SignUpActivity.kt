@@ -6,22 +6,24 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import by.itacademy.pvt.jammin.R
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.backendless.Backendless
+import com.backendless.BackendlessUser
+import com.backendless.async.callback.AsyncCallback
+import com.backendless.exceptions.BackendlessFault
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : Activity() {
 
-    private lateinit var mAuth: FirebaseAuth
-    private lateinit var dbRef: DatabaseReference
+    companion object {
+        private const val APPID = "3DB46DD2-BE7E-A51D-FF8E-21FAF7837500"
+        private const val APIKEY = "69EDE62E-D9C6-2422-FF10-65E6E641AD00"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        mAuth = FirebaseAuth.getInstance()
-        dbRef = FirebaseDatabase.getInstance().getReference("Users")
+        Backendless.initApp(this, APPID, APIKEY)
 
         val email = findViewById<TextView>(R.id.createEmail)
         val passwordOne = findViewById<TextView>(R.id.createPassword)
@@ -47,26 +49,27 @@ class SignUpActivity : Activity() {
     }
 
     private fun registration(email: String, password: String) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(
-                this
-            ) { task ->
-                if (task.isSuccessful) {
-                    val user = mAuth.currentUser
-                    val uid = user!!.uid
-                    val uProfile = HashMap<Any, String>()
-                    uProfile["name"] = createName.text.toString()
-                    uProfile["uid"] = uid
-                    uProfile["instrument"] = createInstrument.text.toString()
-                    uProfile["contact"] = createContact.text.toString()
 
-                    dbRef.child(uid).setValue(uProfile)
+        val user = BackendlessUser()
+        user.email = email
+        user.password = password
+        user.setProperty("name", createName.text.toString())
+        user.setProperty("instrument", createInstrument.text.toString())
+        user.setProperty("contact", createContact.text.toString())
+        //progressBar.setVisibility(View.VISIBLE)
+        Backendless.UserService.register(user, object : AsyncCallback<BackendlessUser> {
 
-                    Toast.makeText(getContext(), "Регистрация успешна", Toast.LENGTH_SHORT).show()
-                    onBackPressed()
-                } else
-                    Toast.makeText(getContext(), "Регистрация провалена", Toast.LENGTH_SHORT).show()
+            override fun handleResponse(response: BackendlessUser) {
+                //progressBar.setVisibility(View.INVISIBLE)
+                Toast.makeText(getContext(), "User has been registered", Toast.LENGTH_LONG).show()
+                onBackPressed()
             }
+
+            override fun handleFault(fault: BackendlessFault) {
+                //progressBar.setVisibility(View.INVISIBLE)
+                Toast.makeText(getContext(), fault.message, Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
     private fun getContext(): Context {

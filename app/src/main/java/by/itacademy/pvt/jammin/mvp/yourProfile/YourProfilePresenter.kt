@@ -1,5 +1,8 @@
 package by.itacademy.pvt.jammin.mvp.yourProfile
 
+import android.content.Context
+import android.util.Log
+import android.widget.Toast
 import by.itacademy.pvt.jammin.entity.User
 import by.itacademy.pvt.jammin.net.provideUserRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,7 +14,11 @@ class YourProfilePresenter {
     private val repository = provideUserRepository()
     private var disposable: Disposable? = null
     private var view: YourProfileView? = null
-    private lateinit var user: User
+    private var context: Context? = null
+
+    fun setContext(context: Context) {
+        this.context = context
+    }
 
     fun setView(view: YourProfileView) {
         this.view = view
@@ -28,7 +35,6 @@ class YourProfilePresenter {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                user = it
                 view?.showProfile(it.imageUrl, it.name, it.instrument, it.contact)
             }, {
             })
@@ -43,13 +49,13 @@ class YourProfilePresenter {
                     instrument = instrument,
                     contact = contact,
                     imageUrl = imageUrl
-                    )
+                )
             ).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-
-            },{
-
+                Toast.makeText(context, "Changed successfully", Toast.LENGTH_SHORT).show()
+            }, {
+                Toast.makeText(context, "Something wrong happens", Toast.LENGTH_SHORT).show()
             })
     }
 }

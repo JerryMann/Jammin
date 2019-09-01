@@ -23,19 +23,26 @@ fun loadImage(url: String, imageView: ImageView) {
 }
 
 fun loadCircularImage(url: String?, imageView: ImageView) {
-    Picasso.get()
-        .load(url)
-        .transform(Circular())
-        .into(imageView, object : Callback {
-            override fun onSuccess() {
-                return
-            }
+    if (url != null) {
+        Picasso.get()
+            .load(url)
+            .transform(Circular())
+            .into(imageView, object : Callback {
+                override fun onSuccess() {
+                    return
+                }
 
-            override fun onError(e: Exception?) {
-                Picasso.get()
-                    .load(R.drawable.key)
-                    .transform(Circular())
-                    .into(imageView)
-            }
-        })
+                override fun onError(e: Exception?) {
+                    Picasso.get()
+                        .load(R.drawable.key)
+                        .transform(Circular())
+                        .into(imageView)
+                }
+            })
+    } else {
+        Picasso.get()
+            .load(R.drawable.key)
+            .transform(Circular())
+            .into(imageView)
+    }
 }

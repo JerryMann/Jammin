@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class User(
 
-    @SerializedName("uid")
+    @SerializedName("objectId")
     val id: String,
 
     @SerializedName("name")
@@ -16,6 +16,6 @@ class User(
     @SerializedName("contact")
     var contact: String,
 
-    @SerializedName("imageUrl")
+    @SerializedName("imgUrl")
     var imageUrl: String?
 )

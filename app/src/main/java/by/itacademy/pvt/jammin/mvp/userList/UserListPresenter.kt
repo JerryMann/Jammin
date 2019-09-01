@@ -27,20 +27,6 @@ class UserListPresenter {
         this.view = null
     }
 
-    fun getAllUsers(): List<User> {
-        disposable = repository.getAllUsers()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                listUsers = it as MutableList<User>
-                view?.showList(listUsers)
-            }, {
-
-            })
-        return listUsers
-    }
-
-    //TODO осталось добавить в активити и проверить запрос
     fun getUsersByInstrument(instrument: String): List<User> {
         disposable = repository.getUserByInstrument(instrument)
             .subscribeOn(Schedulers.io())
@@ -48,7 +34,6 @@ class UserListPresenter {
             .subscribe({
                 listUsers.clear()
                 listUsers.addAll(it)
-                view?.showList(listUsers)
             }, {
 
             })

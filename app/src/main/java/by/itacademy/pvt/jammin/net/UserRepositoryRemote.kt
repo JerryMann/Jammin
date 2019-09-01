@@ -6,11 +6,8 @@ import io.reactivex.Observable
 import io.reactivex.Single
 
 class UserRepositoryRemote(private val api: UserApi) : UserRepository {
-    override fun getAllUsers(): Single<List<User>> {
-        return api.getAllUsers()
-    }
 
-    override fun getUserByInstrument(instrument: String): Observable<List<User>> {
+    override fun getUserByInstrument(instrument: String): Observable<MutableList<User>> {
         return api.getUserByInstrument("instrument LIKE '%$instrument%'")
     }
 
@@ -18,7 +15,7 @@ class UserRepositoryRemote(private val api: UserApi) : UserRepository {
         return api.updateUser(user.id, user)
     }
 
-    override fun getUser(uid: String): Observable<User> {
-        return api.getUser(uid)
+    override fun getUser(id: String): Single<User> {
+        return api.getUser(id)
     }
 }
