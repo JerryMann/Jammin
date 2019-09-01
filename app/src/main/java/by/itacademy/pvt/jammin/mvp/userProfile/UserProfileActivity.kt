@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.ImageView
 import by.itacademy.pvt.jammin.R
 import by.itacademy.pvt.jammin.entity.User
-import by.itacademy.pvt.jammin.entity.UserManagerTemp
 import by.itacademy.pvt.jammin.utils.loadCircularImage
 import kotlinx.android.synthetic.main.activity_user_profile.*
 
@@ -31,14 +30,12 @@ class UserProfileActivity : Activity(), UserProfileView {
         setContentView(R.layout.activity_user_profile)
 
         val itemId = intent.getStringExtra(ITEM_ID)
-        val user = UserManagerTemp.getUser(itemId!!)
         avatarImageView = findViewById(R.id.profileAvatar)
 
         presenter = UserProfilePresenter()
         presenter.setView(this)
-
-        if (user != null) {
-            presenter.loadUserById(itemId)
+        if (itemId != null) {
+            presenter.loadUser(itemId)
         } else {
             onBackPressed()
         }

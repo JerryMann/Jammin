@@ -1,9 +1,21 @@
 package by.itacademy.pvt.jammin.entity
 
+import com.google.gson.annotations.SerializedName
+
 class User(
+
+    @SerializedName("objectId")
     val id: String,
+
+    @SerializedName("name")
     var name: String,
-    var instrument: String?,
-    var contact: String?,
-    var imageUrl: String
+
+    @SerializedName("instrument")
+    var instrument: String,
+
+    @SerializedName("contact")
+    var contact: String,
+
+    @SerializedName("imgUrl")
+    var imageUrl: String?
 )

@@ -32,11 +32,6 @@ class RecyclerAdapter(
         return items.size
     }
 
-    fun updateList(items: List<User>) {
-        this.items = items
-        notifyDataSetChanged()
-    }
-
     interface ClickListener {
         fun onUserClick(item: User)
     }
@@ -49,7 +44,7 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val instrumentUser = itemView.findViewById<TextView>(R.id.userInstrument)
 
     fun bind(item: User) {
-        loadCircularImage(item.imageUrl!!, imageUser)
+        loadCircularImage(item.imageUrl, imageUser)
         nameUser.text = item.name
         instrumentUser.text = item.instrument
     }

@@ -1,9 +1,17 @@
 package by.itacademy.pvt.jammin.mvp.userList
 
 import android.content.Context
+import by.itacademy.pvt.jammin.entity.User
+import by.itacademy.pvt.jammin.net.provideUserRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 
 class UserListPresenter {
 
+    private val repository = provideUserRepository()
+    private var listUsers: MutableList<User> = mutableListOf()
+    private var disposable: Disposable? = null
     private var view: UserListView? = null
     private var context: Context? = null
 
@@ -17,6 +25,19 @@ class UserListPresenter {
 
     fun onViewDestroyed() {
         this.view = null
+    }
+
+    fun getUsersByInstrument(instrument: String): List<User> {
+        disposable = repository.getUserByInstrument(instrument)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                listUsers.clear()
+                listUsers.addAll(it)
+            }, {
+
+            })
+        return listUsers
     }
 
     fun loadSavedList() {

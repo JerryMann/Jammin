@@ -11,7 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SignInActivity"
+        <activity android:name=".mvp.signIn.SignInActivity"
                   android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".mvp.signUp.SignUpActivity"/>
         <activity android:name=".mvp.userList.UserListActivity"/>
         <activity android:name=".mvp.userProfile.UserProfileActivity"/>
         <activity android:name=".mvp.yourProfile.YourProfileActivity"/>

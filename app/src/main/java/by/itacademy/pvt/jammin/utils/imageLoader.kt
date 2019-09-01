@@ -9,21 +9,6 @@ import com.squareup.picasso.Picasso
 fun loadImage(url: String, imageView: ImageView) {
     Picasso.get()
         .load(url)
-        .error(R.drawable.key)
-        .into(imageView, object : Callback {
-            override fun onSuccess() {
-                return
-            }
-
-            override fun onError(e: Exception?) {
-            }
-        })
-}
-
-fun loadCircularImage(url: String, imageView: ImageView) {
-    Picasso.get()
-        .load(url)
-        .transform(Circular())
         .into(imageView, object : Callback {
             override fun onSuccess() {
                 return
@@ -32,8 +17,32 @@ fun loadCircularImage(url: String, imageView: ImageView) {
             override fun onError(e: Exception?) {
                 Picasso.get()
                     .load(R.drawable.key)
-                    .transform(Circular())
                     .into(imageView)
             }
         })
+}
+
+fun loadCircularImage(url: String?, imageView: ImageView) {
+    if (url != null) {
+        Picasso.get()
+            .load(url)
+            .transform(Circular())
+            .into(imageView, object : Callback {
+                override fun onSuccess() {
+                    return
+                }
+
+                override fun onError(e: Exception?) {
+                    Picasso.get()
+                        .load(R.drawable.key)
+                        .transform(Circular())
+                        .into(imageView)
+                }
+            })
+    } else {
+        Picasso.get()
+            .load(R.drawable.key)
+            .transform(Circular())
+            .into(imageView)
+    }
 }
