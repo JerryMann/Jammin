@@ -20,13 +20,16 @@ class UserProfilePresenter {
     }
 
     fun loadUser(id: String) {
+        view?.progressBarOn()
         disposable = repository
             .getUser(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 view?.showUser(it)
+                view?.progressBarOff()
             }, {
+                view?.progressBarOff()
             })
     }
 

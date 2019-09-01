@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import by.itacademy.pvt.jammin.R
 import by.itacademy.pvt.jammin.entity.User
@@ -57,6 +58,15 @@ class UserProfileActivity : Activity(), UserProfileView {
             profileContact.text = user.contact
         }
     }
+
+    override fun progressBarOn() {
+        progressUserProfile.visibility = View.VISIBLE
+    }
+
+    override fun progressBarOff() {
+        progressUserProfile.visibility = View.INVISIBLE
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()

@@ -32,6 +32,11 @@ class RecyclerAdapter(
         return items.size
     }
 
+    fun updateList(list: List<User>) {
+        items = list
+        notifyDataSetChanged()
+    }
+
     interface ClickListener {
         fun onUserClick(item: User)
     }

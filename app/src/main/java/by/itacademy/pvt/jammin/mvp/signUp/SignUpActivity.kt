@@ -3,21 +3,21 @@ package by.itacademy.pvt.jammin.mvp.signUp
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.widget.TextView
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import by.itacademy.pvt.jammin.R
 import com.backendless.Backendless
-import com.backendless.BackendlessUser
-import com.backendless.async.callback.AsyncCallback
-import com.backendless.exceptions.BackendlessFault
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class SignUpActivity : Activity() {
+class SignUpActivity : Activity(), SignUpView {
 
     companion object {
         private const val APPID = "3DB46DD2-BE7E-A51D-FF8E-21FAF7837500"
         private const val APIKEY = "69EDE62E-D9C6-2422-FF10-65E6E641AD00"
     }
+
+    private lateinit var presenter: SignUpPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +25,28 @@ class SignUpActivity : Activity() {
 
         Backendless.initApp(this, APPID, APIKEY)
 
-        val email = findViewById<TextView>(R.id.createEmail)
-        val passwordOne = findViewById<TextView>(R.id.createPassword)
-        val passwordTwo = findViewById<TextView>(R.id.confirmPassword)
+        presenter = SignUpPresenter()
+        presenter.setContext(this)
+        presenter.setView(this)
+
+        val email = findViewById<EditText>(R.id.createEmail)
+        val passwordOne = findViewById<EditText>(R.id.createPassword)
+        val passwordTwo = findViewById<EditText>(R.id.confirmPassword)
+        val name = findViewById<EditText>(R.id.createName)
+        val instrument = findViewById<EditText>(R.id.createInstrument)
+        val contact = findViewById<EditText>(R.id.createContact)
 
         registerButton.setOnClickListener {
             if (passwordOne.text.toString() == passwordTwo.text.toString() &&
                 email.text.isNotEmpty() &&
                 passwordOne.text.isNotEmpty()
             ) {
-                registration(
-                    email.text.toString(),
-                    passwordOne.text.toString()
+                presenter.registration(
+                    email = email.text.toString(),
+                    password =  passwordOne.text.toString(),
+                    name = name.text.toString(),
+                    instrument = instrument.text.toString(),
+                    contact = contact.text.toString()
                 )
             } else {
                 Toast.makeText(getContext(), "Пароли не совпадают", Toast.LENGTH_SHORT).show()
@@ -48,29 +58,19 @@ class SignUpActivity : Activity() {
         }
     }
 
-    private fun registration(email: String, password: String) {
-
-        val user = BackendlessUser()
-        user.email = email
-        user.password = password
-        user.setProperty("name", createName.text.toString())
-        user.setProperty("instrument", createInstrument.text.toString())
-        user.setProperty("contact", createContact.text.toString())
-        //progressBar.setVisibility(View.VISIBLE)
-        Backendless.UserService.register(user, object : AsyncCallback<BackendlessUser> {
-
-            override fun handleResponse(response: BackendlessUser) {
-                //progressBar.setVisibility(View.INVISIBLE)
-                Toast.makeText(getContext(), "User has been registered", Toast.LENGTH_LONG).show()
-                onBackPressed()
-            }
-
-            override fun handleFault(fault: BackendlessFault) {
-                //progressBar.setVisibility(View.INVISIBLE)
-                Toast.makeText(getContext(), fault.message, Toast.LENGTH_LONG).show()
-            }
-        })
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onViewDestroyed()
     }
+
+    override fun progressBarOn() {
+        progressSignUp.visibility = View.VISIBLE
+    }
+
+    override fun progressBarOff() {
+        progressSignUp.visibility = View.INVISIBLE
+    }
+
 
     private fun getContext(): Context {
         return this
