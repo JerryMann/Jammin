@@ -21,7 +21,7 @@ Project is created with:
 * OkHttp version: 4.1.0
 * Retrofit version: 2.6.1
 * RxJava version: 2.2.10
-* Navigation component: 2.2.0
+* Backendless
 
 ## Versioning
 1.0
