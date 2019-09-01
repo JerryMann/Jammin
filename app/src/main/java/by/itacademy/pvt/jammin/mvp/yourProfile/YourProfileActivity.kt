@@ -2,6 +2,7 @@ package by.itacademy.pvt.jammin.mvp.yourProfile
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import by.itacademy.pvt.jammin.R
 import com.backendless.Backendless
@@ -10,10 +11,6 @@ import kotlinx.android.synthetic.main.activity_your_profile.*
 class YourProfileActivity : Activity(), YourProfileView {
 
     private lateinit var presenter: YourProfilePresenter
-//    private lateinit var auth: FirebaseAuth
-//    private lateinit var fbUser: FirebaseUser
-//    private lateinit var dbRef: DatabaseReference
-
     private lateinit var tvImageUrl: TextView
     private lateinit var tvName: TextView
     private lateinit var tvInstrument: TextView
@@ -56,6 +53,15 @@ class YourProfileActivity : Activity(), YourProfileView {
         tvInstrument.text = instrument
         tvContact.text = contact
     }
+
+    override fun progressBarOn() {
+        progressYourProfile.visibility = View.VISIBLE
+    }
+
+    override fun progressBarOff() {
+        progressYourProfile.visibility = View.INVISIBLE
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()

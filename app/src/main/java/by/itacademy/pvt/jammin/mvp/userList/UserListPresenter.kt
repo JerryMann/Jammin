@@ -28,14 +28,16 @@ class UserListPresenter {
     }
 
     fun getUsersByInstrument(instrument: String): List<User> {
+        view?.progressBarOn()
         disposable = repository.getUserByInstrument(instrument)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 listUsers.clear()
                 listUsers.addAll(it)
+                view?.progressBarOff()
             }, {
-
+                view?.progressBarOff()
             })
         return listUsers
     }

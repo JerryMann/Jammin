@@ -30,17 +30,21 @@ class YourProfilePresenter {
     }
 
     fun loadUser(id: String) {
+        view?.progressBarOn()
         disposable = repository
             .getUser(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 view?.showProfile(it.imageUrl, it.name, it.instrument, it.contact)
+                view?.progressBarOff()
             }, {
+                view?.progressBarOff()
             })
     }
 
     fun saveChanges(id: String, name: String, instrument: String, contact: String, imageUrl: String) {
+        view?.progressBarOn()
         disposable = repository
             .updateUser(
                 User(
@@ -54,8 +58,10 @@ class YourProfilePresenter {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 Toast.makeText(context, "Changed successfully", Toast.LENGTH_SHORT).show()
+                view?.progressBarOff()
             }, {
                 Toast.makeText(context, "Something wrong happens", Toast.LENGTH_SHORT).show()
+                view?.progressBarOff()
             })
     }
 }

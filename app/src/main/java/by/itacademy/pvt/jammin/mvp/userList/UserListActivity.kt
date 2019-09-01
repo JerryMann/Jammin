@@ -3,6 +3,7 @@ package by.itacademy.pvt.jammin.mvp.userList
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.itacademy.pvt.jammin.R
@@ -30,7 +31,7 @@ class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener
         recycleView = findViewById(R.id.searchListRecycler)
         recycleView.setHasFixedSize(true)
         recycleView.layoutManager = LinearLayoutManager(this)
-
+        recycleView.adapter = listAdapter
 
         startSearch.setOnClickListener {
             loadSearchingList()
@@ -46,7 +47,7 @@ class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener
         }
 
         savedListButton.setOnClickListener {
-
+            //TODO загрузить сохраенных юзеров из бд
         }
     }
 
@@ -54,8 +55,12 @@ class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener
         startActivity(UserProfileActivity.getIntent(this, item.id))
     }
 
-    override fun showList(list: List<User>) {
-        loadSearchingList()
+    override fun progressBarOn() {
+        progressList.visibility = View.VISIBLE
+    }
+
+    override fun progressBarOff() {
+        progressList.visibility = View.INVISIBLE
     }
 
     override fun onDestroy() {

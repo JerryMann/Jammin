@@ -4,4 +4,6 @@ import by.itacademy.pvt.jammin.entity.User
 
 interface UserProfileView {
     fun showUser(user: User?)
+    fun progressBarOn()
+    fun progressBarOff()
 }
