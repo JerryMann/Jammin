@@ -35,7 +35,6 @@ class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener
 
         startSearch.setOnClickListener {
             loadSearchingList()
-            listAdapter.notifyDataSetChanged()
         }
 
         checkProfile.setOnClickListener {
@@ -70,7 +69,6 @@ class UserListActivity : Activity(), UserListView, RecyclerAdapter.ClickListener
 
     private fun loadSearchingList() {
         searchText = searchUser.text.toString()
-        listAdapter = RecyclerAdapter(presenter.getUsersByInstrument(searchText), this)
-        recycleView.adapter = listAdapter
+        presenter.getUsersByInstrument(searchText, listAdapter)
     }
 }

@@ -3,6 +3,7 @@ package by.itacademy.pvt.jammin.mvp.userList
 import android.content.Context
 import by.itacademy.pvt.jammin.entity.User
 import by.itacademy.pvt.jammin.net.provideUserRepository
+import by.itacademy.pvt.jammin.utils.RecyclerAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -27,7 +28,7 @@ class UserListPresenter {
         this.view = null
     }
 
-    fun getUsersByInstrument(instrument: String): List<User> {
+    fun getUsersByInstrument(instrument: String, adapter: RecyclerAdapter) {
         view?.progressBarOn()
         disposable = repository.getUserByInstrument(instrument)
             .subscribeOn(Schedulers.io())
@@ -35,11 +36,11 @@ class UserListPresenter {
             .subscribe({
                 listUsers.clear()
                 listUsers.addAll(it)
+                adapter.updateList(listUsers)
                 view?.progressBarOff()
             }, {
                 view?.progressBarOff()
             })
-        return listUsers
     }
 
     fun loadSavedList() {
